@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage_USER.master.cs" Inherits="MasterPage_USER" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style2 {
+            width: 156px;
+        }
+        .auto-style3 {
+            width: 967px;
+        }
+        .auto-style4 {
+            width: 874px;
+            height: 185px;
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    </div>
+        <table style="width:100%;">
+            <tr>
+                <td colspan="3">
+                    <img alt="" class="auto-style4" src="image/1487907404_banner2.png" /></td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+                    <asp:Menu ID="Menu1" runat="server" OnMenuItemClick="Menu1_MenuItemClick">
+                        <Items>
+                            <asp:MenuItem Text="Đăng Xuất" Value="Đăng Xuất"></asp:MenuItem>
+                            <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </td>
+                <td class="auto-style3" >   
+                    &nbsp;</td>
+                <td>
+                    <iframe
+    allow="microphone;"
+    width="350"
+    height="430"
+    src="https://console.dialogflow.com/api-client/demo/embedded/f2693bbf-b64f-44c9-9b9b-eaa3952e2302">
+</iframe>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="auto-style2">
+                    <asp:Repeater ID="Repeater1" runat="server">
+                        <ItemTemplate>
+                           <a href="DANHSACHMATHANG.aspx?MADM=<%#Eval("MADM") %> ">
+                               <%#Eval("TENDM") %>
+                           </a>
+                            <br>
+                        </ItemTemplate>
+
+                    </asp:Repeater>
+                </td>
+                <td class="auto-style3" >   
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+            <p>
+                Xin đừng thiết kế ở đây</p>
+        
+        </asp:ContentPlaceHolder>
+                </td>
+                <td>
+                    <asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate">
+                    </asp:Login>
+                </td>
+            </tr>
+            
+        </table>
+    </form>
+
+</body>
+</html>
